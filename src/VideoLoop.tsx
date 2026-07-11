@@ -76,11 +76,11 @@ export default function VideoLoop({ accent, emoji, videoUrl, active = false, cap
         {playing ? "LIVE" : "VORSTELLUNG"}
       </div>
 
-      {/* cycling Leitfrage caption (teleprompter feel) */}
+      {/* cycling Leitfrage caption (compact single-line pill) */}
       {active && captions && captions.length > 0 && (
         <div className="vid-caption" key={ci}>
-          <span className="q-index">🎬 Vorstellung · Frage {ci + 1}/{captions.length}</span>
-          „{captions[ci]}"
+          <span className="q-index">🎬 {ci + 1}/{captions.length}</span>
+          <span className="q-text">„{captions[ci]}"</span>
         </div>
       )}
     </div>

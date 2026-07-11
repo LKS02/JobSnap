@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Deck from "./Deck";
 import RecordIntro from "./RecordIntro";
 import { MatchesView, ProfileView, BottomNav } from "./views";
-import { JOBS, CANDIDATES, CANDIDATE_QUESTIONS, type Card as CardT } from "./data";
+import { JOBS, CANDIDATES, CANDIDATE_QUESTIONS, SAMPLE_MATCHES, type Card as CardT, type MatchEntry } from "./data";
 import { IconGhost, IconBell, IconUser, IconBag } from "./icons";
 
 type Mode = "applicant" | "recruiter";
@@ -13,10 +13,11 @@ export default function App() {
   const [mode, setMode] = useState<Mode>("applicant");
   const [tab, setTab] = useState<Tab>("swipe");
   const [recording, setRecording] = useState(false);
-  const [matches, setMatches] = useState<CardT[]>([]);
+  const [matches, setMatches] = useState<MatchEntry[]>(SAMPLE_MATCHES);
 
   const addMatch = (card: CardT) =>
-    setMatches((m) => (m.find((x) => x.id === card.id) ? m : [card, ...m]));
+    setMatches((m) => (m.find((x) => x.card.id === card.id) ? m
+      : [{ card, when: "gerade eben", preview: "Ihr habt gematcht! Sag Hallo 👋", unread: true }, ...m]));
 
   return (
     <div className="app">

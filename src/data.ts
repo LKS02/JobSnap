@@ -312,3 +312,39 @@ export const JOB_QUESTIONS = [
 
 export const questionsFor = (c: Card) =>
   c.kind === "job" ? JOB_QUESTIONS : CANDIDATE_QUESTIONS;
+
+// ======================= Matches (mit Sample-Daten) =======================
+export type MatchEntry = { card: Card; when: string; preview: string; unread: boolean };
+
+export const SAMPLE_MATCHES: MatchEntry[] = [
+  { card: JOBS[1], when: "vor 2 Std.", unread: true,
+    preview: "Nordwind Energy: Passt dir Donnerstag 15:00 für ein kurzes Video-Kennenlernen? ⚡" },
+  { card: JOBS[3], when: "gestern", unread: true,
+    preview: "Mint Robotics: Cooles Portfolio! Magst du uns dein letztes Projekt zeigen?" },
+  { card: JOBS[4], when: "vor 3 Tagen", unread: false,
+    preview: "Du: Danke fürs Match! Ich freue mich riesig über euer Team 🎉" },
+];
+
+// ======================= Dein eigenes Profil ("Du") =======================
+export const ME: Candidate = {
+  id: "me", kind: "candidate",
+  name: "Du", age: 29, headline: "Senior Product Designer", seniority: "6 Jahre Erfahrung",
+  location: "Berlin", remote: "Remote / Hybrid", availability: "in 4 Wochen", payWish: "€75–85k",
+  matchScore: 87, verified: true,
+  topSkills: ["Figma", "Design Systems", "Prototyping"],
+  skills: ["Figma", "Design Systems", "Prototyping", "UX Research", "Framer", "Design Ops"],
+  languages: ["Deutsch (Muttersprache)", "Englisch (verhandlungssicher)", "Französisch (Grundlagen)"],
+  bio: "Ich gestalte digitale Produkte, die sich einfach anfühlen – vom ersten Research bis zum fertigen Token-System. Ich suche ein Team, das Design ernst nimmt und schnell iteriert.",
+  highlights: [
+    { role: "Senior Product Designer", org: "N26", span: "2021–heute" },
+    { role: "Product Designer", org: "Zalando", span: "2018–2021" },
+    { role: "UI Designer", org: "Freelance", span: "2016–2018" },
+  ],
+  education: [
+    { degree: "M.A. Interaction Design", school: "UdK Berlin", span: "2015–2018" },
+    { degree: "B.A. Kommunikationsdesign", school: "FH Potsdam", span: "2012–2015" },
+  ],
+  certificates: ["NN/g UX Certification", "Design Sprint Master", "Accessibility (WCAG) Basics"],
+  cultureTags: ["Remote-first", "Design-driven", "4-Tage-Woche offen"],
+  accent: "#7c5cff", emoji: "🙋",
+};
