@@ -43,21 +43,20 @@ function JobFront({ card, onFlip, active }: { card: Extract<CardT, { kind: "job"
       <div className="card-front-body">
         <div className="employer-row">
           <div className="employer-logo" style={{ background: card.logoColor }}>{card.logo}</div>
-          <div className="employer-name">
+          <span className="employer-name">
             {card.company}
             {card.verified && <span className="verified"><IconVerified /></span>}
-            <span style={{ color: "var(--muted)", fontWeight: 600 }}>· {card.industry}</span>
-          </div>
+          </span>
+          <span className="type-tag">{card.jobType}</span>
         </div>
 
-        <span className="type-tag">{card.jobType}</span>
         <div className="card-title">{card.title}</div>
 
         <div className="card-sub">
-          <span className="meta"><IconBag />{card.employmentType} · {card.seniority}</span>
+          <span className="meta"><IconBag />{card.employmentType}</span>
           <span className="meta"><IconPin />{card.location} · {card.remote}</span>
-          <span className="meta pay">💶 {card.payRange}</span>
         </div>
+        <div className="pay-row">💶 {card.payRange}</div>
 
         <div className="chip-row">
           {card.topSkills.map((s) => <span className="chip" key={s}>{s}</span>)}
@@ -88,6 +87,14 @@ function JobBack({ card, onFlip }: { card: Extract<CardT, { kind: "job" }>; onFl
         <div className="sect">
           <h4>Warum wir</h4>
           <p className="lead">{card.companyPitch}</p>
+        </div>
+
+        <div className="sect">
+          <h4>Rahmen</h4>
+          <div className="chip-row">
+            <span className="chip line">{card.employmentType}</span>
+            <span className="chip line">Voraussetzung: {card.seniority}</span>
+          </div>
         </div>
 
         <div className="sect">
@@ -144,21 +151,19 @@ function CandidateFront({ card, onFlip, active }: { card: Extract<CardT, { kind:
       <div className="card-front-body">
         <div className="employer-row">
           <div className="employer-logo" style={{ background: card.accent, fontSize: 18 }}>{card.emoji}</div>
-          <div className="employer-name">
+          <span className="employer-name">
             {card.seniority}
             {card.verified && <span className="verified"><IconVerified /></span>}
-          </div>
+          </span>
         </div>
 
         <div className="card-title">{card.name}, {card.age}</div>
 
         <div className="card-sub">
           <span className="meta"><IconBag />{card.headline}</span>
-        </div>
-        <div className="card-sub">
           <span className="meta"><IconPin />{card.location} · {card.remote}</span>
-          <span className="meta pay">💶 {card.payWish}</span>
         </div>
+        <div className="pay-row">💶 {card.payWish}</div>
 
         <div className="chip-row">
           {card.topSkills.map((s) => <span className="chip" key={s}>{s}</span>)}
