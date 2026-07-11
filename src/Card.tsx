@@ -50,6 +50,7 @@ function JobFront({ card, onFlip, active }: { card: Extract<CardT, { kind: "job"
           </div>
         </div>
 
+        <span className="type-tag">{card.jobType}</span>
         <div className="card-title">{card.title}</div>
 
         <div className="card-sub">
@@ -113,7 +114,7 @@ function JobBack({ card, onFlip }: { card: Extract<CardT, { kind: "job" }>; onFl
         <div className="sect">
           <h4>Eckdaten</h4>
           <div className="stat-row">
-            <div className="stat"><b>{card.payRange}</b><span>Gehalt</span></div>
+            <div className="stat"><b>{card.payRange}</b><span>Vergütung</span></div>
             <div className="stat"><b>{card.founded}</b><span>gegründet</span></div>
             <div className="stat"><b>{card.startDate}</b><span>Start</span></div>
           </div>

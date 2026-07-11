@@ -197,6 +197,12 @@ body {
 .verified { color: var(--snap-blue); display: inline-flex; }
 .verified svg { width: 14px; height: 14px; }
 
+.type-tag {
+  align-self: flex-start; margin-bottom: -3px;
+  background: var(--snap-yellow); color: var(--snap-yellow-ink);
+  font-size: 11px; font-weight: 800; letter-spacing: 0.07em; text-transform: uppercase;
+  padding: 4px 11px; border-radius: var(--r-pill); box-shadow: 0 4px 14px rgba(255, 252, 0, 0.3);
+}
 .card-title { font-size: 25px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.12; }
 .card-sub { display: flex; flex-wrap: wrap; align-items: center; gap: 5px 12px; color: #e6e6ec; font-size: 13px; font-weight: 600; }
 .card-sub .meta { display: inline-flex; align-items: center; gap: 5px; }
