@@ -126,8 +126,8 @@ function MatchOverlay({ card, mode, onClose }: { card: CardT; mode: Mode; onClos
     : { emoji: "🏢", color: "var(--snap-yellow)" };
 
   const sub = card.kind === "job"
-    ? `Du und ${card.company} interessiert euch füreinander. Schlag ein Video-Kennenlernen für „${card.title}" vor.`
-    : `Ihr passt zusammen! Lade ${card.name} zu einem ersten Video-Interview ein.`;
+    ? `Du und ${card.company} interessiert euch füreinander — bewirb dich jetzt für „${card.title}".`
+    : `Ihr passt zusammen! ${card.name} kann sich jetzt bei euch bewerben.`;
 
   return (
     <motion.div className="match-overlay"
@@ -146,7 +146,7 @@ function MatchOverlay({ card, mode, onClose }: { card: CardT; mode: Mode; onClos
         <div className="match-sub">{sub}</div>
 
         <div className="match-actions">
-          <button className="btn-primary" onClick={onClose}>📹 Video-Interview vorschlagen</button>
+          <button className="btn-primary" onClick={onClose}>🚀 Jetzt bewerben</button>
           <button className="btn-ghost" onClick={onClose}>Weiter swipen</button>
         </div>
       </motion.div>

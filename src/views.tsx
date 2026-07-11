@@ -31,16 +31,19 @@ export function MatchesView({ matches, onRecord }: { matches: MatchEntry[]; onRe
           const badge = c.kind === "job" ? c.logo : c.emoji;
           const color = c.kind === "job" ? c.logoColor : c.accent;
           return (
-            <div className={`match-row ${m.unread ? "unread" : ""}`} key={c.id + i}>
-              <div className="match-av" style={{ background: color }}>{badge}</div>
-              <div className="match-meta">
-                <div className="match-top">
-                  <b>{title} {c.verified && <span className="verified"><IconVerified /></span>}</b>
-                  <span className="match-when">{m.when}</span>
+            <div className={`match-card ${m.unread ? "unread" : ""}`} key={c.id + i}>
+              <div className="match-row">
+                <div className="match-av" style={{ background: color }}>{badge}</div>
+                <div className="match-meta">
+                  <div className="match-top">
+                    <b>{title} {c.verified && <span className="verified"><IconVerified /></span>}</b>
+                    <span className="match-when">{m.when}</span>
+                  </div>
+                  <span className="match-role">{sub} · {c.matchScore}% Match</span>
+                  <span className="match-preview">{m.preview}</span>
                 </div>
-                <span className="match-role">{sub} · {c.matchScore}% Match</span>
-                <span className="match-preview">{m.preview}</span>
               </div>
+              <button className="match-apply">🚀 Jetzt bewerben</button>
             </div>
           );
         })}

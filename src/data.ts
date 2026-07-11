@@ -318,7 +318,7 @@ export type MatchEntry = { card: Card; when: string; preview: string; unread: bo
 
 export const SAMPLE_MATCHES: MatchEntry[] = [
   { card: JOBS[1], when: "vor 2 Std.", unread: true,
-    preview: "Nordwind Energy: Passt dir Donnerstag 15:00 für ein kurzes Video-Kennenlernen? ⚡" },
+    preview: "Nordwind Energy: Super Match! Wir freuen uns riesig auf deine Bewerbung 🌱" },
   { card: JOBS[3], when: "gestern", unread: true,
     preview: "Mint Robotics: Cooles Portfolio! Magst du uns dein letztes Projekt zeigen?" },
   { card: JOBS[4], when: "vor 3 Tagen", unread: false,
