@@ -52,6 +52,8 @@ export type Candidate = {
   languages: string[];
   bio: string;
   highlights: { role: string; org: string; span: string }[];
+  education: { degree: string; school: string; span: string }[];
+  certificates: string[];
   cultureTags: string[];
   accent: string;
   emoji: string;
@@ -181,6 +183,10 @@ export const CANDIDATES: Candidate[] = [
       { role: "Senior Frontend", org: "Delivery Hero", span: "2021–heute" },
       { role: "Frontend Dev", org: "Freelance", span: "2019–2021" },
     ],
+    education: [
+      { degree: "B.Sc. Medieninformatik", school: "HTWK Leipzig", span: "2015–2018" },
+    ],
+    certificates: ["AWS Certified Developer", "Professional Scrum Master I"],
     cultureTags: ["Remote-first", "Async", "Produktnah"], accent: "#7c5cff", emoji: "🧑‍💻",
     videoUrl: "https://videos.pexels.com/video-files/6248593/6248593-sd_640_360_25fps.mp4",
   },
@@ -197,6 +203,11 @@ export const CANDIDATES: Candidate[] = [
       { role: "Lead Designer", org: "N26", span: "2020–heute" },
       { role: "Product Designer", org: "Zalando", span: "2016–2020" },
     ],
+    education: [
+      { degree: "M.A. Interaction Design", school: "HfG Schwäbisch Gmünd", span: "2012–2015" },
+      { degree: "B.A. Kommunikationsdesign", school: "FH Potsdam", span: "2009–2012" },
+    ],
+    certificates: ["NN/g UX Certification", "Design Sprint Master"],
     cultureTags: ["Design-driven", "Mentoring", "4-Tage-Woche"], accent: "#ff6b9d", emoji: "👩‍🎨",
     videoUrl: "https://videos.pexels.com/video-files/4972699/4972699-sd_640_360_30fps.mp4",
   },
@@ -213,6 +224,11 @@ export const CANDIDATES: Candidate[] = [
       { role: "Filialleiter", org: "dm-drogerie markt", span: "2014–heute" },
       { role: "Stv. Leitung", org: "REWE", span: "2008–2014" },
     ],
+    education: [
+      { degree: "Handelsfachwirt (IHK)", school: "IHK München", span: "2010–2012" },
+      { degree: "Ausbildung Einzelhandelskaufmann", school: "REWE Group", span: "2003–2006" },
+    ],
+    certificates: ["Ausbildereignung (AdA)", "Erste-Hilfe-Ausbilder"],
     cultureTags: ["Bodenständig", "Teamplayer", "Regional"], accent: "#e6a23c", emoji: "🧑‍💼",
     videoUrl: "https://videos.pexels.com/video-files/3246669/3246669-sd_640_360_25fps.mp4",
   },
@@ -229,6 +245,11 @@ export const CANDIDATES: Candidate[] = [
       { role: "ML Engineer", org: "Unbabel", span: "2022–heute" },
       { role: "Research Intern", org: "TU München", span: "2021" },
     ],
+    education: [
+      { degree: "M.Sc. Machine Learning (abgebrochen)", school: "TU München", span: "2020–2021" },
+      { degree: "B.Sc. Informatik", school: "Universidade de Lisboa", span: "2016–2020" },
+    ],
+    certificates: ["DeepLearning.AI Specialization", "TensorFlow Developer Cert."],
     cultureTags: ["Async-first", "Deep Tech", "Ownership"], accent: "#19c3ff", emoji: "👩‍🔬",
     videoUrl: "https://videos.pexels.com/video-files/8084624/8084624-sd_640_360_25fps.mp4",
   },
@@ -245,6 +266,10 @@ export const CANDIDATES: Candidate[] = [
       { role: "Content Lead", org: "About You", span: "2021–heute" },
       { role: "Social Manager", org: "Freelance", span: "2018–2021" },
     ],
+    education: [
+      { degree: "B.A. Medien- & Eventmanagement", school: "HMKW Köln", span: "2012–2015" },
+    ],
+    certificates: ["Meta Certified Media Buying", "Google Analytics 4"],
     cultureTags: ["Kreativ", "Schnell", "Trend-first"], accent: "#ff9f43", emoji: "🎬",
     videoUrl: "https://videos.pexels.com/video-files/7677193/7677193-sd_360_640_25fps.mp4",
   },
@@ -261,6 +286,11 @@ export const CANDIDATES: Candidate[] = [
       { role: "Fachkraft Intensiv", org: "Uniklinik Köln", span: "2016–heute" },
       { role: "Gesundheitspflegerin", org: "Charité", span: "2012–2016" },
     ],
+    education: [
+      { degree: "Fachweiterbildung Intensivpflege", school: "Uniklinik Köln", span: "2018–2020" },
+      { degree: "Ausbildung Gesundheits- & Krankenpflege", school: "Charité Berlin", span: "2009–2012" },
+    ],
+    certificates: ["Fachkraft für Intensiv- & Anästhesiepflege", "Basale Stimulation"],
     cultureTags: ["Verlässlich", "Empathisch", "Team-Mensch"], accent: "#5cc8ff", emoji: "👩‍⚕️",
     videoUrl: "https://videos.pexels.com/video-files/6130120/6130120-sd_640_360_30fps.mp4",
   },

@@ -206,9 +206,26 @@ function CandidateBack({ card, onFlip }: { card: Extract<CardT, { kind: "candida
         </div>
 
         <div className="sect">
+          <h4>Ausbildung</h4>
+          {card.education.map((e) => (
+            <div className="benefit" key={e.degree} style={{ marginBottom: 8 }}>
+              <span className="emoji">🎓</span>
+              <span>{e.degree} · <span style={{ color: "var(--muted)" }}>{e.school}, {e.span}</span></span>
+            </div>
+          ))}
+        </div>
+
+        <div className="sect">
           <h4>Skills</h4>
           <div className="chip-row">
             {card.skills.map((s) => <span className="chip blue" key={s}>{s}</span>)}
+          </div>
+        </div>
+
+        <div className="sect">
+          <h4>Zertifikate & Weiterbildungen</h4>
+          <div className="chip-row">
+            {card.certificates.map((c) => <span className="chip line" key={c}>🏅 {c}</span>)}
           </div>
         </div>
 
