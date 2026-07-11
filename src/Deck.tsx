@@ -5,11 +5,11 @@ import Card from "./Card";
 import { IconX, IconHeart, IconRewind } from "./icons";
 
 type Mode = "applicant" | "recruiter";
-type Props = { cards: CardT[]; mode: Mode; onMatch?: (card: CardT) => void };
+type Props = { cards: CardT[]; mode: Mode; onMatch?: (card: CardT) => void; onApply?: (card: CardT) => void };
 
 const SWIPE = 110; // px threshold
 
-export default function Deck({ cards, mode, onMatch }: Props) {
+export default function Deck({ cards, mode, onMatch, onApply }: Props) {
   const [index, setIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [match, setMatch] = useState<CardT | null>(null);
@@ -110,14 +110,14 @@ export default function Deck({ cards, mode, onMatch }: Props) {
       )}
 
       <AnimatePresence>
-        {match && <MatchOverlay card={match} mode={mode} onClose={() => setMatch(null)} />}
+        {match && <MatchOverlay card={match} mode={mode} onClose={() => setMatch(null)} onApply={onApply} />}
       </AnimatePresence>
     </>
   );
 }
 
 /* ---------------- Match overlay ---------------- */
-function MatchOverlay({ card, mode, onClose }: { card: CardT; mode: Mode; onClose: () => void }) {
+function MatchOverlay({ card, mode, onClose, onApply }: { card: CardT; mode: Mode; onClose: () => void; onApply?: (card: CardT) => void }) {
   const other = card.kind === "job"
     ? { emoji: card.logo, color: card.logoColor }
     : { emoji: card.emoji, color: card.accent };
@@ -146,7 +146,7 @@ function MatchOverlay({ card, mode, onClose }: { card: CardT; mode: Mode; onClos
         <div className="match-sub">{sub}</div>
 
         <div className="match-actions">
-          <button className="btn-primary" onClick={onClose}>🚀 Jetzt bewerben</button>
+          <button className="btn-primary" onClick={() => { onClose(); onApply?.(card); }}>🚀 Jetzt bewerben</button>
           <button className="btn-ghost" onClick={onClose}>Weiter swipen</button>
         </div>
       </motion.div>

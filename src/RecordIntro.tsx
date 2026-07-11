@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { IconX, IconCheck, IconRewind } from "./icons";
 
-type Props = { questions: string[]; onClose: () => void };
+type Props = { questions: string[]; onClose: () => void; onComplete?: () => void; submitLabel?: string };
 
 const MAX = 30; // Sekunden pro Antwort
 
@@ -11,7 +11,7 @@ const MAX = 30; // Sekunden pro Antwort
  * Echte Kamera-Vorschau via getUserMedia, mit Fallback in den Sample-Modus.
  * Die eigentliche Aufnahme ist simuliert (Timer/States) – "nur als Sample".
  */
-export default function RecordIntro({ questions, onClose }: Props) {
+export default function RecordIntro({ questions, onClose, onComplete, submitLabel }: Props) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
   const timerRef = useRef<number | null>(null);
@@ -147,7 +147,7 @@ export default function RecordIntro({ questions, onClose }: Props) {
                 <div className="rec-done-item" key={qq}><span className="tick"><IconCheck /></span>{qq}</div>
               ))}
             </div>
-            <button className="btn-primary" style={{ maxWidth: 320, width: "100%" }} onClick={onClose}>Fertig</button>
+            <button className="btn-primary" style={{ maxWidth: 320, width: "100%" }} onClick={onComplete ?? onClose}>{submitLabel ?? "Fertig"}</button>
           </motion.div>
         )}
       </AnimatePresence>

@@ -1,11 +1,11 @@
-import type { MatchEntry } from "./data";
+import type { MatchEntry, Card } from "./data";
 import { ME } from "./data";
 import { IconCards, IconChat, IconCamera, IconUser, IconVerified } from "./icons";
 
 type Tab = "swipe" | "matches" | "profile";
 
 /* ---------------- Matches ---------------- */
-export function MatchesView({ matches, onRecord }: { matches: MatchEntry[]; onRecord: () => void }) {
+export function MatchesView({ matches, onRecord, onApply }: { matches: MatchEntry[]; onRecord: () => void; onApply: (c: Card) => void }) {
   if (matches.length === 0) {
     return (
       <div className="view-scroll">
@@ -43,7 +43,7 @@ export function MatchesView({ matches, onRecord }: { matches: MatchEntry[]; onRe
                   <span className="match-preview">{m.preview}</span>
                 </div>
               </div>
-              <button className="match-apply">🚀 Jetzt bewerben</button>
+              <button className="match-apply" onClick={() => onApply(c)}>🚀 Jetzt bewerben</button>
             </div>
           );
         })}

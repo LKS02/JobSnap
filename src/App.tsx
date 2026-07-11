@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Deck from "./Deck";
 import RecordIntro from "./RecordIntro";
+import ApplyFlow from "./ApplyFlow";
 import { MatchesView, ProfileView, BottomNav } from "./views";
 import { JOBS, CANDIDATES, CANDIDATE_QUESTIONS, SAMPLE_MATCHES, type Card as CardT, type MatchEntry } from "./data";
 import { IconGhost, IconBell, IconUser, IconBag } from "./icons";
@@ -13,6 +14,7 @@ export default function App() {
   const [mode, setMode] = useState<Mode>("applicant");
   const [tab, setTab] = useState<Tab>("swipe");
   const [recording, setRecording] = useState(false);
+  const [apply, setApply] = useState<CardT | null>(null);
   const [matches, setMatches] = useState<MatchEntry[]>(SAMPLE_MATCHES);
 
   const addMatch = (card: CardT) =>
@@ -47,16 +49,17 @@ export default function App() {
         </header>
 
         {tab === "swipe" && (mode === "applicant"
-          ? <Deck key="applicant" cards={JOBS} mode="applicant" onMatch={addMatch} />
-          : <Deck key="recruiter" cards={CANDIDATES} mode="recruiter" onMatch={addMatch} />)}
+          ? <Deck key="applicant" cards={JOBS} mode="applicant" onMatch={addMatch} onApply={setApply} />
+          : <Deck key="recruiter" cards={CANDIDATES} mode="recruiter" onMatch={addMatch} onApply={setApply} />)}
 
-        {tab === "matches" && <MatchesView matches={matches} onRecord={() => setRecording(true)} />}
+        {tab === "matches" && <MatchesView matches={matches} onRecord={() => setRecording(true)} onApply={setApply} />}
         {tab === "profile" && <ProfileView onRecord={() => setRecording(true)} matchCount={matches.length} />}
 
         <BottomNav tab={tab} setTab={setTab} onRecord={() => setRecording(true)} matchCount={matches.length} />
 
         <AnimatePresence>
           {recording && <RecordIntro questions={CANDIDATE_QUESTIONS} onClose={() => setRecording(false)} />}
+          {apply && <ApplyFlow card={apply} onClose={() => setApply(null)} />}
         </AnimatePresence>
       </div>
     </div>

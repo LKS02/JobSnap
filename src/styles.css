@@ -506,5 +506,48 @@ body {
 .rec-done-item .tick { width: 24px; height: 24px; border-radius: 50%; background: var(--snap-yellow); color: #000; display: grid; place-items: center; flex: none; }
 .rec-done-item .tick svg { width: 15px; height: 15px; }
 
+/* ---------------- Apply flow (Typeform-Fragen → Video) ---------------- */
+.apply-screen {
+  position: absolute; inset: 0; z-index: 60;
+  background: radial-gradient(120% 55% at 50% 0%, rgba(255, 252, 0, 0.09), transparent 60%), var(--ink);
+  display: flex; flex-direction: column;
+}
+.apply-top { flex: none; display: flex; align-items: center; justify-content: space-between; padding: 16px; }
+.apply-target { font-size: 14px; font-weight: 800; }
+.apply-progress { flex: none; height: 4px; margin: 0 16px; background: var(--line); border-radius: 2px; overflow: hidden; }
+.apply-progress i { display: block; height: 100%; background: var(--snap-yellow); border-radius: 2px; transition: width 0.3s ease; }
+
+.tf-question { flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: center; padding: 20px 22px 44px; gap: 16px; }
+.tf-index { font-size: 11px; font-weight: 800; letter-spacing: 0.1em; color: var(--snap-yellow); }
+.tf-question h2 { font-size: 26px; font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; }
+.tf-input {
+  width: 100%; background: none; border: none; border-bottom: 2px solid var(--line-strong);
+  color: #fff; font-family: var(--font); font-size: 20px; font-weight: 600; padding: 10px 2px; outline: none;
+}
+.tf-input:focus { border-color: var(--snap-yellow); }
+.tf-input::placeholder { color: var(--muted-2); }
+.tf-ok { align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px; }
+.tf-ok:disabled { opacity: 0.4; cursor: default; }
+.tf-enter { font-size: 11px; font-weight: 700; opacity: 0.65; }
+.tf-options { display: flex; flex-direction: column; gap: 10px; }
+.tf-option {
+  display: flex; align-items: center; gap: 12px; text-align: left; cursor: pointer;
+  background: var(--card); border: 1px solid var(--line-strong); border-radius: 14px;
+  padding: 15px 14px; font-family: var(--font); font-weight: 700; font-size: 15.5px; color: #fff;
+  transition: border-color 0.12s ease, background 0.12s ease;
+}
+.tf-option:hover { border-color: var(--snap-yellow); background: var(--card-2); }
+.tf-key {
+  width: 26px; height: 26px; border-radius: 7px; flex: none; display: grid; place-items: center;
+  background: rgba(255, 255, 255, 0.1); border: 1px solid var(--line-strong); font-size: 12px; font-weight: 800;
+}
+
+.apply-mid { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 30px; gap: 12px; }
+.apply-mid-emoji { font-size: 60px; }
+.apply-mid h2 { font-size: 27px; font-weight: 800; letter-spacing: -0.02em; }
+.apply-mid p { font-size: 14.5px; color: #d5d5dd; line-height: 1.5; max-width: 320px; margin-bottom: 10px; }
+.apply-check { width: 84px; height: 84px; border-radius: 50%; background: var(--snap-yellow); color: #050505; display: grid; place-items: center; margin-bottom: 6px; box-shadow: 0 12px 30px rgba(255, 252, 0, 0.35); }
+.apply-check svg { width: 42px; height: 42px; }
+
 /* helper */
 .hint { text-align: center; font-size: 11.5px; color: var(--muted-2); font-weight: 600; padding-bottom: 2px; }
