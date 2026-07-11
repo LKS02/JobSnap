@@ -289,21 +289,24 @@ body {
 }
 .action-btn {
   border-radius: 50%; display: grid; place-items: center; cursor: pointer;
-  background: var(--card-2); border: 1px solid var(--line);
-  transition: transform 0.12s ease;
+  background: linear-gradient(180deg, #2c2c34, #171a1d);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 7px 18px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: transform 0.12s ease, border-color 0.12s ease, background 0.12s ease;
 }
 .action-btn:active { transform: scale(0.9); }
 .action-btn svg { width: 26px; height: 26px; }
-.action-btn.sm { width: 50px; height: 50px; }
-.action-btn.sm svg { width: 22px; height: 22px; }
+.action-btn.sm { width: 54px; height: 54px; }
+.action-btn.sm svg { width: 23px; height: 23px; }
 .action-btn.lg { width: 66px; height: 66px; }
 
-.action-btn.nope { color: #fff; border-color: var(--line-strong); }
+.action-btn.nope { color: #ffffff; }
 .action-btn.nope:hover { border-color: var(--coral); color: var(--coral); }
-.action-btn.like { background: var(--snap-yellow); color: var(--snap-yellow-ink); border-color: transparent; box-shadow: 0 10px 26px rgba(255,252,0,.32); }
-.action-btn.super { color: var(--snap-blue); border-color: rgba(25,195,255,.45); }
 .action-btn.rewind { color: var(--snap-yellow); }
-.action-btn.boost { color: var(--snap-purple); }
+.action-btn.like {
+  background: var(--snap-yellow); color: var(--snap-yellow-ink); border-color: transparent;
+  box-shadow: 0 8px 24px rgba(255, 252, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
 
 /* ---------------- Match overlay ---------------- */
 .match-overlay {
